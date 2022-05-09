@@ -3,13 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import datimApi,{getBaseUrl} from "@pepfar-react-lib/datim-api"
+import {Provider} from "@dhis2/app-runtime";
+import {HeaderBar} from '@dhis2/ui-widgets'
+
+datimApi.registerProd(getBaseUrl())
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+      <Provider config={{baseUrl: getBaseUrl(), apiVersion: 36}}>
+            <span id='dhis2HeaderBar'>
+                <HeaderBar/>
+            </span>
     <App />
+      </Provider>
   </React.StrictMode>
 );
 
