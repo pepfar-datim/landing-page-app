@@ -69,7 +69,7 @@
   "scripts": {
     "start": "REACT_APP_BASE_URL=https://jakub.datim.org/ node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
+    "test": "REACT_APP_BASE_URL=https://jakub.datim.org/ node scripts/test.js",
     "dep:copy": "sh node_modules/@pepfar-react-lib/dep-copy/bin/dep-copy.sh",
     "webpack:cache": "rm -rf node_modules/.cache"
   },
@@ -117,7 +117,8 @@
     "transform": {
       "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+      "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js",
+      "^.+\\.[t|j]sx?$": "babel-jest"
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
@@ -148,7 +149,9 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react-app",
+      ["@babel/preset-env", {"targets": {"node": "16.13.1"}}],
+      "@babel/preset-typescript"
     ]
   }
 }
