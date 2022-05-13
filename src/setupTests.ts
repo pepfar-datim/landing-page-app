@@ -4,5 +4,8 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 import datimApi from "@pepfar-react-lib/datim-api"
-
+import fetch from "node-fetch";
+//@ts-ignore
+global.fetch = fetch;
 datimApi.register(process.env.NODE_ENV, process.env.REACT_APP_BASE_URL)
+datimApi.setTestUsername(`jflaska`,`Basic amZsYXNrYTpHcmVlbjE4IQ==`);

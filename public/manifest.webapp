@@ -1,0 +1,22 @@
+{
+  "launch_path": "index.html",
+  "default_locale": "en",
+  "activities": {
+    "dhis": {
+      "href": "../../.."
+    }
+  },
+  "appType": "APP",
+  "name": "Landing Page",
+  "version": "2.4.7",
+  "description": "DATIM Landing Page",
+  "icons": {
+    "48": "img/logo_256.png"
+  },
+  "developer": {
+    "name": "PEPFAR"
+  },
+  "dhis2": {
+    "apiVersion": "36"
+  }
+}
