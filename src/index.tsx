@@ -9,8 +9,6 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-console.log(process.env)
-
 datimApi.register(process.env.NODE_ENV,process.env.REACT_APP_BASE_URL);
 
 root.render(<React.StrictMode>
