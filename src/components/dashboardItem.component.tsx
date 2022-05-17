@@ -6,7 +6,7 @@ import "./css/dashboardItem.component.css"
 
 function resizeObject(object:HTMLObjectElement|null):any{
     let height:number = object?.contentDocument?.querySelector('html')?.offsetHeight as number;
-    if (!height||height<150) return setTimeout(()=>resizeObject(object),50);
+    if (!height||height<=165) return setTimeout(()=>resizeObject(object),50);
     if (object) object.style.height = `${height}px`;
 }
 

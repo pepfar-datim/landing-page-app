@@ -2,3 +2,7 @@ body {
     margin: 0;
     background-color: #f4f6f8;
 }
+
+#gridWrapper {
+    padding:5px 12px 10px 5px;
+}
