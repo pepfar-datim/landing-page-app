@@ -4,13 +4,15 @@ import React, {RefObject, useEffect, useRef} from "react";
 import {Grid, Paper} from "@mui/material"
 import "./css/dashboardItem.component.css"
 
-function resizeObject(ref:RefObject<HTMLObjectElement>){
-    let height:number = ref.current?.contentDocument?.querySelector('html')?.offsetHeight as number;
-    if (height && height>160 && ref.current) ref.current.style.height = `${height}px`;
+function resizeObject(object:HTMLObjectElement|null):any{
+    let height:number = object?.contentDocument?.querySelector('html')?.offsetHeight as number;
+    if (!height||height<150) return setTimeout(()=>resizeObject(object),50);
+    if (object) object.style.height = `${height}px`;
 }
 
 function setupResize(ref:RefObject<HTMLObjectElement>){
-    window.addEventListener('resize',()=>resizeObject(ref));
+    resizeObject(ref.current);
+    window.addEventListener('resize',()=>resizeObject(ref.current));
 }
 
 export function DashboardItemComponent({dashboardItem}:{dashboardItem:DashboardItem}){
