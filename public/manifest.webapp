@@ -8,10 +8,10 @@
   },
   "appType": "APP",
   "name": "Landing Page",
-  "version": "2.4.7",
+  "version": "1.0.0",
   "description": "DATIM Landing Page",
   "icons": {
-    "48": "img/logo_256.png"
+    "48": "pepfar-bicubic.png"
   },
   "developer": {
     "name": "PEPFAR"
