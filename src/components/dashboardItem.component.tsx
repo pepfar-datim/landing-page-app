@@ -25,7 +25,6 @@ export function DashboardItemComponent({dashboardItem}:{dashboardItem:DashboardI
                 data={`/api/apps/Information/index.html?dashboardItemId=${dashboardItem.id}#/`}
                 type={'text/html'}
             />
-            {/*<iframe src={`/api/apps/Information/index.html?dashboardItemId=${dashboardItem.id}#/`}/>*/}
         </Paper>
     </Grid>
 }

@@ -11,7 +11,7 @@
   "version": "1.0.0",
   "description": "DATIM Landing Page",
   "icons": {
-    "48": "pepfar-bicubic.png"
+    "48": "landing-page.png"
   },
   "developer": {
     "name": "PEPFAR"
