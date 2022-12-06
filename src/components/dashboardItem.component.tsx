@@ -15,6 +15,11 @@ function setupResize(ref:RefObject<HTMLObjectElement>){
     window.addEventListener('resize',()=>resizeObject(ref.current));
 }
 
+function getBaseUrl() {
+    const {origin, pathname} = window.location
+    return origin + pathname.substring(0, pathname.indexOf('/api'))
+}
+
 export function DashboardItemComponent({dashboardItem}:{dashboardItem:DashboardItem}){
     const objectRef=useRef<HTMLObjectElement>(null);
     useEffect(()=>setupResize(objectRef));
@@ -22,7 +27,7 @@ export function DashboardItemComponent({dashboardItem}:{dashboardItem:DashboardI
         <Paper className={'Paper'}>
             <object
                 ref={objectRef}
-                data={`/api/apps/Information/index.html?dashboardItemId=${dashboardItem.id}#/`}
+                data={`${getBaseUrl()}/api/apps/Information/index.html?dashboardItemId=${dashboardItem.id}#/`}
                 type={'text/html'}
             />
         </Paper>
