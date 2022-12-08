@@ -11,7 +11,7 @@ export async function getDashboardItems(dashboardId:string):Promise<DashboardIte
     } catch (err) {
         // Dashboard does not exist
         try {
-            const blankDashboard = {dashboards: [{
+            const blankDashboard = {
                 "id":"LandingPage",
                 "name":"Landing Page",
                 "publicAccess":"--------",
@@ -19,8 +19,8 @@ export async function getDashboardItems(dashboardId:string):Promise<DashboardIte
                 "externalAccess":false,
                 "itemCount":0,
                 "dashboardItems":[]
-            }]};
-            let createResponse = await datimApi.postJson('/metadata', blankDashboard);
+            };
+            let createResponse = await datimApi.postJson('/dashboards', blankDashboard);
             console.log('Created blank landing page dashboard: ' + createResponse)
             return []
         } catch (createErr) {
