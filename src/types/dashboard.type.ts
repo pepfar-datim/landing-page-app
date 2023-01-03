@@ -8,6 +8,7 @@ export type DashboardItem = {
     appKey:string,
 }
 
-// export type Dashboard = {
-//     items: DashboardItem[]
-// }
+export type DashboardInfo = {
+    name: string,
+    dashboardItems: DashboardItem[]
+}
