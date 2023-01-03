@@ -1,13 +1,14 @@
 import datimApi from "@pepfar-react-lib/datim-api";
-import {DashboardItem} from "../types/dashboard.type";
+import {DashboardItem, DashboardInfo} from "../types/dashboard.type";
 
-export async function getDashboardItems(dashboardId:string):Promise<DashboardItem[]>{
+export async function getDashboardInfo(dashboardId:string):Promise<DashboardInfo>{
     try {
-        let response:any = await datimApi.getJson(`/dashboards/${dashboardId}.json?fields=dashboardItems[id,appKey,width,height,x,y]`);
-        return response.dashboardItems.sort((a:DashboardItem,b:DashboardItem)=>{
+        let response:any = await datimApi.getJson(`/dashboards/${dashboardId}.json?fields=name,dashboardItems[id,appKey,width,height,x,y]`);
+        const dashboardItems = response.dashboardItems.sort((a:DashboardItem,b:DashboardItem)=>{
             if (a.y===b.y) return a.x-b.x;
             return a.y-b.y
         });
+        return {name: response?.name || 'Landing Page | DHIS2', dashboardItems}
     } catch (err) {
         // Dashboard does not exist
         try {
@@ -22,10 +23,10 @@ export async function getDashboardItems(dashboardId:string):Promise<DashboardIte
             };
             let createResponse = await datimApi.postJson('/dashboards', blankDashboard);
             console.log('Created blank landing page dashboard: ' + createResponse)
-            return []
+            return {name: blankDashboard.name, dashboardItems: []}
         } catch (createErr) {
             console.log('Failed to get dashboard items: ', createErr);
-            return [];
+            return {name: 'Error', dashboardItems: []};
         }
     }
 }

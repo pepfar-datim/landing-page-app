@@ -1,6 +1,6 @@
 import React from 'react';
-import {getDashboardItems} from "../services/getDashboardItems.service";
-import {DashboardItem} from "../types/dashboard.type";
+import {getDashboardInfo} from "../services/getDashboardInfo.service";
+import {DashboardInfo, DashboardItem} from "../types/dashboard.type";
 import { DashboardItemComponent } from './dashboardItem.component';
 import LandingPageEmpty from './landingPageEmpty.component';
 import {CircularProgress, Grid} from "@mui/material";
@@ -14,7 +14,9 @@ export class Main extends React.Component<any, {loaded: boolean, dashboardItems:
         };
     }
     componentDidMount() {
-        getDashboardItems('LandingPage').then((dashboardItems:DashboardItem[])=>{
+        getDashboardInfo('LandingPage').then((dashboardInfo:DashboardInfo)=>{
+            const {name, dashboardItems} = dashboardInfo;
+            document.title = name
             this.setState({
                 loaded: true,
                 dashboardItems
