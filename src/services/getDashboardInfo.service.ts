@@ -8,7 +8,7 @@ export async function getDashboardInfo(dashboardId:string):Promise<DashboardInfo
             if (a.y===b.y) return a.x-b.x;
             return a.y-b.y
         });
-        return {name: response?.name || 'Landing Page | DATIM', dashboardItems}
+        return {name: response?.name || 'Landing Page | DHIS2', dashboardItems}
     } catch (err) {
         // Dashboard does not exist
         try {
