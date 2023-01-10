@@ -14,8 +14,8 @@ At some point in the future, we hope to add this app to the [App Hub](https://ap
 
 By default, the Landing Page app will be blank. To add content, follow these steps:
 
-1. Go to the Landing Page app.  This will add the Landing Page app dashboard to your system.
-2. Go to the Dashboards app and find the `Landing Page` dashboard.
+1. Go to the `Landing Page` app.  This will add the Landing Page app's dashboard to your system.
+2. Go to the `Dashboards` app and find the `Landing Page` dashboard.
 3. Edit it just as you would a regular dashboard.
 
 Note that the Landing Page app does not support any widgets except for the [Rich Text and Video Dashboard Widget](https://github.com/pepfar-datim/dashboard-information-widget/), which allows you to create rich text with links, videos, and other advanced content.
@@ -24,10 +24,10 @@ Note that the Landing Page app does not support any widgets except for the [Rich
 
 After installation, you may wish to make the Landing Page app the default app whenever a user logs into your DHIS2 instance.  To do this, follow these steps:
 
-1. Go to the System Settings app
-2. Choose **Appearance** in the left menu
-3. Find the **Start page** dropdown
-4. Choose **Landing Page** from the dropdown
+1. Go to the `System Settings` app
+2. Choose `Appearance` in the left menu
+3. Find the `Start page` dropdown
+4. Choose `Landing Page` from the dropdown
 
 ## Menu setup
 
