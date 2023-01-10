@@ -1,4 +1,5 @@
 import React from 'react';
+import datimApi from "@pepfar-react-lib/datim-api";
 import {getDashboardInfo} from "../services/getDashboardInfo.service";
 import {DashboardInfo, DashboardItem} from "../types/dashboard.type";
 import { DashboardItemComponent } from './dashboardItem.component';
@@ -21,6 +22,7 @@ export class Main extends React.Component<any, {loaded: boolean, dashboardItems:
                 loaded: true,
                 dashboardItems
             })
+            datimApi.postJson('/dataStatistics?eventType=PASSIVE_DASHBOARD_VIEW&favourite=LandingPage', undefined)
         });
     }
 
