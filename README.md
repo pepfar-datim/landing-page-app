@@ -14,9 +14,9 @@ At some point in the future, we hope to add this app to the [App Hub](https://ap
 
 By default, the Landing Page app will be blank. To add content, follow these steps:
 
-1. Go to the `Landing Page` app.  This will add the Landing Page app's dashboard to your system.
-2. Go to the `Dashboards` app and find the `Landing Page` dashboard.
-3. Edit it just as you would a regular dashboard.
+1. Go to the `Landing Page` app—this will add the Landing Page app's dashboard to your system
+2. Go to the `Dashboards` app and find the `Landing Page` dashboard
+3. Edit it just as you would a regular dashboard
 
 Note that the Landing Page app does not support any widgets except for the [Rich Text and Video Dashboard Widget](https://github.com/pepfar-datim/dashboard-information-widget/), which allows you to create rich text with links, videos, and other advanced content.
 
