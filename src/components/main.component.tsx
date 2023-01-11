@@ -22,7 +22,7 @@ export class Main extends React.Component<any, {loaded: boolean, dashboardItems:
                 loaded: true,
                 dashboardItems
             })
-            datimApi.postJson('/dataStatistics?eventType=PASSIVE_DASHBOARD_VIEW&favourite=LandingPage', undefined)
+            datimApi.postJson('/dataStatistics?eventType=PASSIVE_DASHBOARD_VIEW&favorite=LandingPage', undefined)
         });
     }
 
