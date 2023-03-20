@@ -14,3 +14,9 @@ body {
 #dhis2HeaderBar a > div {
     padding: 0;
 }
+
+.notSupportedItem {
+    font-family: Roboto;
+    margin-top: 10px;
+    padding: 0 16px;
+}

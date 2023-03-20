@@ -2,7 +2,10 @@ import {DashboardItem} from "../types/dashboard.type";
 import {getColumnSize, getWidth} from "../services/getWidthHeight.service";
 import React, {RefObject, useEffect, useRef} from "react";
 import {Grid, Paper} from "@mui/material"
+import { getBaseUrl } from "../utils";
 import "./css/dashboardItem.component.css"
+import NotSupported from "./notSupported.component";
+
 
 function resizeObject(object:HTMLObjectElement|null):any{
     let height:number = object?.contentDocument?.querySelector('html')?.offsetHeight as number;
@@ -15,21 +18,19 @@ function setupResize(ref:RefObject<HTMLObjectElement>){
     window.addEventListener('resize',()=>resizeObject(ref.current));
 }
 
-function getBaseUrl() {
-    const {origin, pathname} = window.location
-    return origin + pathname.substring(0, pathname.indexOf('/api'))
-}
-
 export function DashboardItemComponent({dashboardItem}:{dashboardItem:DashboardItem}){
     const objectRef=useRef<HTMLObjectElement>(null);
     useEffect(()=>setupResize(objectRef));
     return <Grid item md={getColumnSize(dashboardItem.width)} xs={12}>
         <Paper className={'Paper'}>
-            <object
-                ref={objectRef}
-                data={`${getBaseUrl()}/api/apps/Information/index.html?dashboardItemId=${dashboardItem.id}#/`}
-                type={'text/html'}
-            />
+            {dashboardItem?.appKey === 'Information' ? (
+                <object
+                    ref={objectRef}
+                    data={`${getBaseUrl()}/api/apps/Information/index.html?dashboardItemId=${dashboardItem.id}#/`}
+                    type={'text/html'}
+                />
+            ) : (<NotSupported dashboardItem={dashboardItem } />)}
+
         </Paper>
     </Grid>
 }

@@ -3,7 +3,7 @@ import {DashboardItem, DashboardInfo} from "../types/dashboard.type";
 
 export async function getDashboardInfo(dashboardId:string):Promise<DashboardInfo>{
     try {
-        let response:any = await datimApi.getJson(`/dashboards/${dashboardId}.json?fields=name,dashboardItems[id,appKey,width,height,x,y]`);
+        let response:any = await datimApi.getJson(`/dashboards/${dashboardId}.json?fields=name,dashboardItems[id,type,appKey,width,height,x,y,map(id,name),visualization(id,name),eventReport(id,name)]`);
         const dashboardItems = response.dashboardItems.sort((a:DashboardItem,b:DashboardItem)=>{
             if (a.y===b.y) return a.x-b.x;
             return a.y-b.y
@@ -25,7 +25,7 @@ export async function getDashboardInfo(dashboardId:string):Promise<DashboardInfo
             console.log('Created blank landing page dashboard: ' + createResponse)
             return {name: blankDashboard.name, dashboardItems: []}
         } catch (createErr) {
-            console.log('Failed to get dashboard items: ', createErr);
+            console.warn('Failed to get dashboard items: ', createErr);
             return {name: 'Error', dashboardItems: []};
         }
     }
