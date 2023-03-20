@@ -19,12 +19,11 @@ function setupResize(ref:RefObject<HTMLObjectElement>){
 }
 
 export function DashboardItemComponent({dashboardItem}:{dashboardItem:DashboardItem}){
-    const {appKey, type} = dashboardItem;
     const objectRef=useRef<HTMLObjectElement>(null);
     useEffect(()=>setupResize(objectRef));
     return <Grid item md={getColumnSize(dashboardItem.width)} xs={12}>
         <Paper className={'Paper'}>
-            {appKey === 'Information' ? (
+            {dashboardItem?.appKey === 'Information' ? (
                 <object
                     ref={objectRef}
                     data={`${getBaseUrl()}/api/apps/Information/index.html?dashboardItemId=${dashboardItem.id}#/`}
