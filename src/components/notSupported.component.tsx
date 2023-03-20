@@ -36,7 +36,7 @@ const NotSupported = ({ dashboardItem }: { dashboardItem: DashboardItem }) => {
       {
         itemType in itemTypeInfo ? (
           <p>
-            Click <a href={itemInfo.link(item?.id)} target="_blank">here</a> to see '{name}' in the {itemInfo?.app} app
+            <a href={itemInfo.link(item?.id)} target="_blank">Click here to see '{name}' in the {itemInfo?.app} app</a>
           </p>
         ) : ''
       }
