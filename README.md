@@ -39,6 +39,4 @@ Our initial use case with this app was to combine it with the [Rich Text and Vid
 
 As mentioned above, the Landing Page app currently only shows the [Rich Text and Video Dashboard Widget](https://github.com/pepfar-datim/dashboard-information-widget/),
 
-Also, all users see the same dashboard when they login. There is no way to show different items depending on the user's roles and permissions. (Though as with normal dashboards, if visualizations are configured with user org unit, then different users will see only the data that is relevant to them.)
-
-Data statistics on visualizations are not currently recorded at this time, however this is planned for a future release of the application, when visualizations can be displayed.
+Also, all users see the same dashboard when they login. There is no way to show different dashboards depending on the user's roles and permissions.
