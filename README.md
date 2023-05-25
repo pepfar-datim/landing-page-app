@@ -8,7 +8,7 @@ The Landing Page app is a DHIS2 app for displaying a single dashboard as the lan
 
 Install the app by uploading into the DHIS2 App Management app the zip either from [our releases](https://github.com/pepfar-datim/landing-page-app/releases) or from `npm run build`.
 
-At some point in the future, we hope to add this app to the [App Hub](https://apps.dhis2.org/).
+The app is also available on the [DHIS2 App Hub](https://apps.dhis2.org/app/30a4b86f-882c-490a-b6e1-0d730bfa53ad)
 
 ## Adding content to the Landing Page app
 
