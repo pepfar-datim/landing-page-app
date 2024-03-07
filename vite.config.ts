@@ -1,6 +1,6 @@
 import {CommonServerOptions, defineConfig, HttpProxy, loadEnv, ProxyOptions} from 'vite'
 import react from '@vitejs/plugin-react'
-import { visualizer } from "rollup-plugin-visualizer";
+import {visualizer} from "rollup-plugin-visualizer";
 
 let auth: string
 try {
