@@ -1,19 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import {Main} from './components/main.component';
-import datimApi from "@pepfar-react-lib/datim-api"
-import "./index.css";
-import {DatimWrapper} from "./components/datimWrapper.component";
+import ReactDOM from 'react-dom/client'
+import {lazy, Suspense} from 'react'
+import {LoadingHeaderBar} from "./dhis2HeaderBar/components/loadingHeaderBar.component.tsx"
+import {DashboardContext} from "./dashboard/components/dashboardContext.component.tsx";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+// eslint-disable-next-line react-refresh/only-export-components
+const Dhis2HeaderBar = lazy(()=>import('./dhis2HeaderBar/components/dhis2HeaderBar.component'))
 
-datimApi.register(process.env.NODE_ENV,process.env.REACT_APP_BASE_URL);
+ReactDOM.createRoot(document.getElementById('root')!).render(<>
+    <Suspense fallback={<LoadingHeaderBar/>}><Dhis2HeaderBar/></Suspense>
+    <DashboardContext/>
+</>)
 
-root.render(<React.StrictMode>
-    <DatimWrapper>
-        <Main/>
-    </DatimWrapper>
-</React.StrictMode>);
 
