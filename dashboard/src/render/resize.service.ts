@@ -6,7 +6,6 @@ function resizeContainer(id:string):void {
     const contentHeight = getContentHeight(id)
     if (!contentHeight) return
     getObject(id).style.minHeight = `${contentHeight + 1}px`
-    console.log('resizing', id, contentHeight+1)
 }
 
 async function isLoading(id:string):Promise<void>{
@@ -15,9 +14,11 @@ async function isLoading(id:string):Promise<void>{
     }
 }
 
-export async function startInitialResize(id:string):Promise<void>{
-    console.log('init resize',id)
+declare let initializeContainerResize:(id:string)=>Promise<void>
+
+initializeContainerResize = async function (id:string):Promise<void>{
     await isLoading(id)
     resizeContainer(id)
     window.addEventListener('resize', ()=>resizeContainer(id));
+    setTimeout(()=>resizeContainer(id),1000)
 }
