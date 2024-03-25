@@ -21,7 +21,7 @@ interface Config {
 export const dhis2ProviderConfig:Config = {
     baseUrl: '/',
     apiVersion: 40,
-    appName: 'Landing Page',
+    appName: '',
     appVersion: {
         full: '1.0.3',
         major: 1,
