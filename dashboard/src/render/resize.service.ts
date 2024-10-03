@@ -5,7 +5,7 @@ const pause = (ms:number)=>new Promise((resolve)=>setTimeout(resolve, ms))
 function resizeContainer(id:string):void {
     const contentHeight = getContentHeight(id)
     if (!contentHeight) return
-    getObject(id).style.minHeight = `${contentHeight + 1}px`
+    getObject(id).style.minHeight = `${contentHeight + 2}px`
 }
 
 async function isLoading(id:string):Promise<void>{
